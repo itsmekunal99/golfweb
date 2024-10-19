@@ -1,0 +1,596 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: monserat;
+    color:white;
+}
+html,body{
+    height:100%;
+    weight:100%;
+}
+@font-face {
+    font-family: gilroy;
+    src: url(/golfweb/font/Gilroy.otf);
+}
+@font-face {
+    font-family: monserat;
+    src: url(/golfweb/font/Montserrat.ttf);
+}
+body{
+    background-color: rgb(44, 31, 31);
+}
+#cursor{
+    height:20px;
+    width:20px;
+    background-color: #95c11e;
+    border-radius: 50%;
+    position:fixed;
+    z-index: 99;    
+}
+#cursor-blur{
+    height:250px;
+    width:250px;
+    background-color: #96c11e77;
+    border-radius: 50%;
+    position:fixed;
+    filter: blur(50px);
+    z-index: 9;    
+}
+
+#nav{
+    height:100px;
+    width:100%;
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    /* background-color: brown; */
+    padding:0 100px;
+    gap:40px;
+    position: fixed;
+    z-index: 99;
+}
+#nav img{
+    height:80px;
+}
+#nav h3{
+    font-weight: 500;
+    text-transform: uppercase;
+}
+video{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+    z-index: -1;
+    position:fixed;
+}
+#main{
+    position:relative;
+    background-color: rgba(0, 0, 0, 0.349);
+}
+#page1{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index:10;
+}
+#page1 h1{
+    font-size: 90px;
+    font-weight: 900 ;
+    position: relative;
+
+    text-transform: uppercase;
+}
+/* pseudo elements */
+#page1 h1::before{
+    content: "EAT. DRINK. PLAY.";
+    position: absolute;
+    color:black;
+    top:-4px;
+    left:-5px;
+    -webkit-text-stroke: 1.5px #95c11e;
+    z-index:-1; 
+}
+#page1 h2{
+    font-size: 25px;
+    font-weight: 800 ;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    
+    text-transform: uppercase;
+}
+#page1 h3{
+    font-size: 16px;
+    font-weight: 500 ;
+    width:45%; 
+}
+
+
+/* page 2 */
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index:10;
+}
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+
+#scrollerin{
+    display: inline-block;
+    white-space: nowrap;
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite ;
+
+}
+
+#scroller h3{
+    text-transform: uppercase;
+
+    display: inline-block;
+    font-size: 90px;
+    font-weight: 900;
+    font-family: gilroy;
+    transition: all linear 0.4s;
+    margin-right: 20px;
+    color: rgba(0, 0, 0, 0.653);
+    -webkit-text-stroke:1.5px #95c11e;
+}
+
+#scroller h3:hover{
+    color: #95c11e;
+}
+
+@keyframes scroll{
+    from{
+        transform : translateX(0);
+    }
+    to{
+        transform : translateX(-100%);
+    }
+}
+
+#about-us{
+    height:75vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    padding:0px 80px;
+    position: relative;
+    z-index: 10;
+}
+#about-us img{
+    height:200px;
+    aspect-ratio: 12/16;
+    object-fit:cover;
+    border-radius: 5%;
+}
+#aboutText{
+    padding:0px 80px;
+    text-align: center;
+}
+#aboutText h1{
+    margin-top: 30px;
+    margin-bottom: 35px;
+    font-size: 33px;
+    font-weight: 900;
+}
+#aboutText p{
+    font-size: 18px;
+    line-height:2 ;
+}
+
+/* cards */
+#card{
+    margin-top: 40px ;
+    margin-bottom: 40px;
+    height:80vh;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap:40px;
+    position: relative;
+    z-index: 10;
+    
+}
+.cardss{
+    height:90%;
+    width: 25%;
+    border-radius: 14px;
+    background-size:cover; 
+    background-position: center; 
+    overflow: hidden;
+    transition: all ease 1.5s;
+}
+#card1{
+    background-image:url(/golfweb/media/imgs/card1.jpg);
+}
+#card2{
+    background-image:url(/golfweb/media/imgs/card2.jpg);
+}
+#card3{
+    background-image:url(/golfweb/media/imgs/card3.jpg);
+}
+
+.overlay{
+    height:100% ;
+    width:100% ;
+    background-color: #95c11e;
+    padding: 30px;
+    opacity: 0;
+    transition: all ease 0.8s;
+}
+.overlay h3{
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom:30px ;
+}
+.overlay p{
+    color: black;
+    font-size: 20px;
+    
+}
+.overlay:hover{
+    opacity:1;
+    
+}
+.cardss:hover{
+    transform:rotate3d(-1,1,0,15deg) ;
+}
+
+/* green box */
+#greenbox{
+
+    height:35vh;
+    background: linear-gradient(to left bottom, #119f3a, #ace022);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    
+}
+#greenbox img{
+    height: 100%;
+    width:150px;
+    object-fit: cover;
+}
+
+#greenbox h3{
+    width:50%;
+    color: black;
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 2;
+}
+
+/* page 3 */
+#page3{
+    min-height:80vh;
+    width:100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    /* z-index: 10; */
+}
+
+
+/* Slideshow container setup */
+#imagebox {
+    width: 540px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+}
+
+#slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Dot navigation */
+.dots-container {
+    text-align: center;
+    position: absolute;
+    bottom: 10px;            /* Place dots below the image */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;           /* Use flexbox for better alignment */
+    gap: 10px;              /* Space between dots */
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: 2px solid transparent;  /* Hidden border initially */
+    position: relative;
+}
+
+.dot.active {
+    background-color: transparent; /* Make active dot transparent */
+    border-color: #95c11e;         /* Show green border around active dot */
+    transform: scale(1.5);         /* Slightly enlarge active dot */
+}
+
+.dot.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 10px;               /* Inner circle size */
+    height: 10px;              /* Inner circle size */
+    background-color: #95c11e; /* Inner circle color */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Styling for the paragraph */
+#text {
+width: 470px;              /* You can adjust the width as needed */
+/* display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column; */
+}
+#text h2{
+    font-size: 37px;
+    font-weight: 900;
+    margin-bottom: 37px;
+}
+#text p{
+    font-size: 18px;
+    line-height: 1.8;
+}
+#text button{
+    background-color: black;      
+    color: white;                 
+    border: 3px solid #95c11e;      
+    border-radius: 30px;           
+    padding: 12px 30px;           
+    font-size: 16px;                      
+    transition: all ease 0.5s;
+    position: relative;
+    z-index: 10;
+}
+#text button:hover{
+    background-color: #95c11e;
+    scale: 1.1;
+    color: black;
+}
+
+/* photo page */
+#photo{
+    height:100%;
+    width: 100%;
+    
+}
+#gallery {
+    overflow-x: auto; /* Hide the scrollbar */
+    overflow-y: hidden;
+    white-space: nowrap;
+    position: relative;
+    /* transform: rotate(-2deg);  /* Tilts the entire gallery by 10 degrees */
+    transform-origin: center; */
+}
+
+/* Styling the images */
+#gallery img {
+    width: 20%; /* Adjust image width as needed */
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 7px;
+    display: inline-block;
+}
+
+/* Hide the scrollbar in webkit browsers */
+#gallery::-webkit-scrollbar {
+    display: none;
+}
+
+/* Inner gallery wrapper for animation */
+#galleryin {
+    display: inline-block;
+    animation-name: scroll;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes scroll {
+0% {
+transform: translateX(0);
+}
+100% {
+transform: translateX(-50%); 
+}
+}
+
+
+#page4{
+    height:70vh;
+    width:100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* z-index: 10; */
+}
+#page4 p{
+    width:60%;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+}
+#page4 img{
+    position: absolute;
+    height: 50px;
+}
+#page4 #colon1{
+    top:30%;
+    left:15%;
+}
+#page4 #colon2{
+    bottom:30%;
+    right:15%;
+}
+
+/* small cards */
+#page5{
+    height:50vh;
+    width:100%;
+    background-color: black;
+    position: relative;
+}
+#hovercarry{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:30px;
+    position:absolute;
+    top: 50px;
+    left:50%;
+    transform: translateX(-50%);
+    z-index: 10;
+
+}
+.hover-box {
+    height:135px;
+    width:340px;
+    background-color:rgb(166, 218, 21);
+    border-radius: 20px; 
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: black;                 
+    font-size: 30px;
+    font-weight: 900;
+
+    position: relative;   
+    z-index: 10;        
+    transition: all 0.5s ease;    
+}
+
+/* First box hover */
+.hover-box:nth-child(1):hover {
+    background-image: url('/golfweb/media/imgs/small1.jpg'); 
+}
+
+/* Second box hover  */
+.hover-box:nth-child(2):hover {
+    background-image: url('/golfweb/media/imgs/small2.jpg'); 
+}
+
+/* Third box hover ) */
+.hover-box:nth-child(3):hover {
+    background-image: url('/golfweb/media/imgs/small3.jpg');
+}
+.hover-box:hover {
+    background-color: transparent;
+    color: white;
+    background-size: cover;
+    background-position: center;
+}
+
+/* hidden text */
+#hidden{
+    text-transform: uppercase;
+
+    font-size: 75px;
+    font-weight: 900;
+    font-family: gilroy;
+    color: rgba(0, 0, 0, 0.653);
+    text-align: center;
+    -webkit-text-stroke:1.5px white;
+    position: relative;
+    z-index: 10;
+}
+#hidden:hover{
+    color: rgba(0, 0, 0, 0.653);
+    -webkit-text-stroke:1.5px #95c11e;
+
+}
+#footer{
+    height:55vh;
+    width:100%;
+    position:relative;
+    z-index: 10;
+
+    background: linear-gradient(to left bottom, #119f3a, #bfec1a);
+}
+#foot{
+    height: 90%;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#f2, #f3{
+    color: black;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 900;
+
+}
+#f4, b{
+    text-transform: uppercase;
+    color: black;
+
+}
+#footer img{
+    height:80px;
+}
+#dev{
+    display:flex;
+    justify-content:space-evenly;
+    gap:40px;
+    
+}
+#dev p{
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+}
